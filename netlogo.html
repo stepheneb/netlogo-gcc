@@ -65,7 +65,7 @@
             var bufferedReader = applet.Packages.java.io.BufferedReader;
             var sr = new applet.Packages.java.io.StringReader(state);
             world.importWorld(errorHandler, importerUser, sr, bufferedReader);
-            panel().repaint();
+            applet.panel().repaint();
           }
         }
       };
