@@ -13,32 +13,44 @@
       applet { border: 1px solid gray;
         padding: 10px;
         background-color: #FF8080; }
+      table { border: 1px solid gray; }
       ul {
         list-style-type: none;
         margin: 1.0em 0em;
         width: 100%; }
         ul li {
           display: table-cell;
-          vertical-align: middle;
+          vertical-align: top;
           margin: 0em;
           padding: 0em 1em; }
-      pre { font-size: 0.7em;
+      button.active {
+        font-weight: bold;
+        font-color: black;
+        border-bottom: 2px solid black; }
+      button {
+        font-weight: normal;
+        font-color: gray;
+        border-bottom: 0px solid black; }
+      pre { font-size: 0.6em;
          background-color: #F0F0F0; }
     </style>
   </head>
   <body>
     <p>NetLogo Applet</p>
-    <p>
-      <div id="appletwrapper">
-        <applet id="applet" code="org.nlogo.lite.Applet" archive="NetLogoLite.jar"  width="600" height="500">
-          <param name="DefaultModel" value="GCCModel.v3.nlogo">
-          <param name="MAYSCRIPT" value="true"/>
-        </applet>
-      </div>
-    </p>
     <ul>
-      <li><button id="save-state">Save State</button></li>
-      <li><button id="restore-state">Restore State</button></li>
+      <li>
+        <div id="appletwrapper">
+          <applet id="applet" code="org.nlogo.lite.Applet" archive="NetLogoLite.jar"  width="600" height="500">
+            <param name="DefaultModel" value="GCCModel.v3.nlogo">
+            <param name="MAYSCRIPT" value="true"/>
+          </applet>
+        </div>
+      </li>
+      <li>
+        <table id="globals-table">
+          <tr><th>Globals</th></tr>
+        </table>
+      </li>
     </ul>
     <ul>
       <li><button id="save-state-button" class="inactive">Save State</button></li>
@@ -71,6 +83,17 @@
             nl_program = nl_world.program();
             nl_observer = nl_world.observer();
             nl_globals = nl_program.globals();
+            for(i = 0; i < nl_globals.size(); i++) {
+              globals[i] = nl_globals.get(i);
+              var tr = document.createElement('tr');
+              var td = document.createElement('td');
+              td.textContent = globals[i];
+              tr.appendChild(td);
+              td = document.createElement('td');
+              td.textContent = nl_observer.getVariable(i);
+              tr.appendChild(td);
+              globals_table.appendChild(tr);
+            }
             sw = new applet.Packages.java.io.StringWriter();
             pw = new applet.Packages.java.io.PrintWriter(sw);
             save_state_button.className    = "active";
@@ -86,9 +109,9 @@
           }
         };
         save_state_button.onclick = function() {
-          world.exportWorld(pw, true);
-          state = sw.toString();
-          world_state.textContent = state;
+          nl_world.exportWorld(pw, true);
+          nl_state = sw.toString();
+          world_state.textContent = nl_state;
         }
         restore_state_button.onclick = function() {
           if (state) {
@@ -96,8 +119,8 @@
             var importerUser = applet.Packages.org.nlogo.api.ImporterUser;
             var bufferedReader = applet.Packages.java.io.BufferedReader;
             var sr = new applet.Packages.java.io.StringReader(state);
-            world.importWorld(errorHandler, importerUser, sr, bufferedReader);
-            applet.panel().repaint();
+            nl_world.importWorld(errorHandler, importerUser, sr, bufferedReader);
+            nl_panel().repaint();
           }
         }
       };
