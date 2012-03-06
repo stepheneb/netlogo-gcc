@@ -40,25 +40,57 @@
       <li><button id="save-state">Save State</button></li>
       <li><button id="restore-state">Restore State</button></li>
     </ul>
-    <pre id="world-state"><pre>
+    <ul>
+      <li><button id="save-state-button" class="inactive">Save State</button></li>
+      <li><button id="restore-state-button" class="inactive">Restore State</button></li>
+    </ul>
+    <pre id="world-state"></pre>
     <script type="text/javascript">
+      var applet               = document.getElementById("applet"),
+          world_state          = document.getElementById("world-state"),
+          globals_table        = document.getElementById("globals-table"),
+          save_state_button    = document.getElementById("save-state-button"),
+          restore_state_button = document.getElementById("restore-state-button"),
+          nl_panel, nl_workspace, nl_world, nl_state, nl_program, nl_observer, nl_globals, sw, pw, 
+          globals = [], i;
+      applet.ready = false;
+      applet.checked_more_than_once = false;
       window.onload=function() {
-        var applet        = document.getElementById("applet");
-        var world_state   = document.getElementById("world-state");
-        var save_state    = document.getElementById("save-state");
-        var restore_state = document.getElementById("restore-state");
-        var state, world;
-
-        save_state.onclick = function() {
-          world = applet.panel().workspace().org$nlogo$lite$LiteWorkspace$$world;
-          var sw = new applet.Packages.java.io.StringWriter();
-          var pw = new applet.Packages.java.io.PrintWriter(sw);
+        window.setTimeout (function()  { isAppletReady(); }, 250);
+        // Wait until the applet is loaded and initialized before enabling buttons.
+        function isAppletReady() {
+          try {
+            applet.ready = applet.panel();
+          } catch (e) {
+            // Do nothing--we'll try again in the next timer interval.
+          }
+          if(applet.ready) {
+            nl_panel = applet.panel();
+            nl_workspace = nl_panel.workspace();
+            nl_world = nl_workspace.org$nlogo$lite$LiteWorkspace$$world;
+            nl_program = nl_world.program();
+            nl_observer = nl_world.observer();
+            nl_globals = nl_program.globals();
+            sw = new applet.Packages.java.io.StringWriter();
+            pw = new applet.Packages.java.io.PrintWriter(sw);
+            save_state_button.className    = "active";
+            restore_state_button.className = "active";
+            if(applet.checked_more_than_once) {
+              clearInterval(applet.checked_more_than_once);
+              applet.checked_more_than_once = false;
+            }
+          } else {
+            if(!applet.checked_more_than_once) {
+              applet.checked_more_than_once = window.setInterval(function() { isAppletReady(); }, 250);
+            }
+          }
+        };
+        save_state_button.onclick = function() {
           world.exportWorld(pw, true);
           state = sw.toString();
           world_state.textContent = state;
         }
-
-        restore_state.onclick = function() {
+        restore_state_button.onclick = function() {
           if (state) {
             var errorHandler = applet.Packages.org.nlogo.api.ImportErrorHandler;
             var importerUser = applet.Packages.org.nlogo.api.ImporterUser;
