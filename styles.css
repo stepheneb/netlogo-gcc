@@ -2,11 +2,11 @@ body { font: 12px Verdana, Arial, Helvetica, sans-serif; ;
   margin: 1.0em 2.0em;
   background-color: white;}
 h1 { font-size 1.3em;
-  font-style: bold; }
+  font-weight: bold; }
 h2 { font-size 1.2em;
-  font-style: bold; }
+  font-weight: bold; }
 h1 { font-size 1.1em;
-  font-style: bold; }
+  font-weight: bold; }
 hr { margin: 2em 0em; }
 #appletwrapper { border: 1px solid gray;
   padding: 10px;
@@ -62,13 +62,18 @@ pre { font-size: 0.8em;
   height: 40em;
   overflow: scroll; }
 .chart {
-  background-color: #F7F2C5;
+  border: 1px solid gray;
+  background-color: #FAFAFA;
   width: 540px;
   height: 420px; }
 circle, .line {
   fill: none;
   stroke: steelblue;
   stroke-width: 2px; }
+text.title { font-size: 1.2em;
+  font-weight: bold; }
+text.axis { font-size: 1.0em;
+  font-weight: normal; }
 circle {
   fill: white;
   fill-opacity: 0.2;
