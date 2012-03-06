@@ -1,0 +1,84 @@
+body { font: 12px Verdana, Arial, Helvetica, sans-serif; ;
+  margin: 1.0em 2.0em;
+  background-color: white;}
+h1 { font-size 1.3em;
+  font-style: bold; }
+h2 { font-size 1.2em;
+  font-style: bold; }
+h1 { font-size 1.1em;
+  font-style: bold; }
+hr { margin: 2em 0em; }
+#appletwrapper { border: 1px solid gray;
+  padding: 10px;
+  width: 630px;
+  height: 520px;
+  background-color: #F0F0F0; }
+applet { border: 1px solid gray;
+  padding: 10px;
+  background-color: #FF8080; }
+table { border: 1px solid gray;
+  border-spacing: 0px;
+  border-collapse: collapse;
+  font: 10px/24px Verdana, Arial, Helvetica, sans-serif; }
+  table th {
+    border: 1px solid gray;
+    padding: 0em 1em;
+    text-align: center; }
+  table td {
+    font-size: 0.9em;
+    border: 1px solid gray;
+    padding: 0em 1em;
+    text-align: right;
+    width: 10em; }
+  table td.left {
+    padding: 0em 1em 0em 2em;
+    text-align: left; }
+ul {
+  list-style-type: none;
+  padding: 0em 0em;
+  margin: 1.0em 0em;
+  width: 100%; }
+  ul li {
+    margin: 0em;
+    padding: 0em 1em; }
+  ul.hlist li {
+    display: table-cell;
+    vertical-align: top;
+    margin: 0em;
+    padding: 0em 1em; }
+button.active {
+  font-weight: bold;
+  font-color: black;
+  border-bottom: 2px solid black; }
+button {
+  font-weight: normal;
+  font-color: gray;
+  border-bottom: 0px solid black; }
+pre { font-size: 0.8em;
+  border: 1px solid gray;
+  padding: 1em;
+  background-color: #F0F0F0;
+  width: 80em;
+  height: 40em;
+  overflow: scroll; }
+.chart {
+  background-color: #F7F2C5;
+  width: 540px;
+  height: 420px; }
+circle, .line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px; }
+circle {
+  fill: white;
+  fill-opacity: 0.2;
+  cursor: move; }
+  circle.selected {
+    fill: #ff7f0e;
+    stroke: #ff7f0e; }
+  circle:hover {
+    fill: #ff7f0e;
+    stroke: #707f0e; }
+  circle.selected:hover {
+    fill: #ff7f0e;
+    stroke: #ff7f0e; }
