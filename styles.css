@@ -9,14 +9,13 @@ h1 { font-size: 1.2em;
   font-weight: bold; }
 hr { margin: 2em 0em; }
 p { max-width: 600px; }
-#appletwrapper { border: 1px solid gray;
+#appletwrapper { border: 1px solid white;
   padding: 10px;
-  width: 630px;
-  height: 520px;
-  background-color: lightgray; }
-applet { border: 1px solid gray;
-  padding: 10px;
-  background-color: darkgray; }
+  width: 600px;
+  height: 490px;
+  background-color: white; }
+applet { padding: 0px;
+  background-color: white; }
 table { border: 1px solid gray;
   border-spacing: 0px;
   border-collapse: collapse;
@@ -37,7 +36,7 @@ table { border: 1px solid gray;
 ul {
   list-style-type: none;
   padding: 0em 0em;
-  margin: 0.5em 0em;
+  margin: 0.5em 0em 0em 0.5em;
   width: 100%; }
   ul li {
     margin: 0em;
@@ -63,7 +62,7 @@ pre { font-size: 0.8em;
   height: 40em;
   overflow: scroll; }
 .chart {
-  border: 1px solid gray;
+  border: 1px solid white;
   background-color: #FAFAFA;
   width: 540px;
   height: 420px; }
