@@ -15,9 +15,11 @@ globals [ sky-top
   starter 
   albedo 
   sun-brightness
+  done
   ]
 
 to startup
+  set done true
   clear-all
   setup-world
   setup-labels           ; create hidden static labels and circles (that identify a ray or heat)
@@ -266,14 +268,12 @@ end
 
 
 
-
-
 @#$#@#$#@
 GRAPHICS-WINDOW
 12
-59
+10
 563
-432
+383
 24
 15
 11.041
@@ -296,67 +296,16 @@ GRAPHICS-WINDOW
 ticks
 30.0
 
-BUTTON
-109
-10
-189
-43
-Reset
-startup
-NIL
-1
-T
-OBSERVER
-NIL
-NIL
-NIL
-NIL
-1
-
-BUTTON
-12
-10
-92
-43
-Run
-execute
-T
-1
-T
-OBSERVER
-NIL
-NIL
-NIL
-NIL
-1
-
-BUTTON
-435
-11
-560
-44
-Watch a sunray
-watch one-of sunrays with [ycor > (max-pycor / 2 ) and heading > 90 ]
-NIL
-1
-T
-OBSERVER
-NIL
-NIL
-NIL
-NIL
-1
-
 SLIDER
-228
-10
-400
-43
+199
+390
+371
+423
 Model_Speed
 Model_Speed
 0
 100
-17
+38
 1
 1
 NIL
