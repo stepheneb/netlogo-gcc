@@ -267,7 +267,6 @@ end
 
 
 
-
 @#$#@#$#@
 GRAPHICS-WINDOW
 12
@@ -297,10 +296,10 @@ ticks
 30.0
 
 SLIDER
-199
-390
-371
-423
+13
+397
+185
+430
 Model_Speed
 Model_Speed
 0
