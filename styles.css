@@ -29,7 +29,7 @@ table { border: 1px solid gray;
     border: 1px solid gray;
     padding: 0em 1em;
     text-align: right;
-    width: 10em; }
+    width: 14em; }
   table td.left {
     padding: 0em 1em 0em 2em;
     text-align: left; }
@@ -45,7 +45,7 @@ ul {
     display: table-cell;
     vertical-align: top;
     margin: 0em;
-    padding: 0em 1em; }
+    padding: 0em 0.5em; }
 button.active {
   font-weight: bold;
   font-color: black;
@@ -64,12 +64,13 @@ pre { font-size: 0.8em;
 .chart {
   border: 1px solid white;
   background-color: #FAFAFA;
-  width: 540px;
-  height: 420px; }
+  margin-top: 20px;
+  width: 580px;
+  height: 465px; }
 circle, .line {
   fill: none;
   stroke: steelblue;
-  stroke-width: 2px; }
+  stroke-width: 1px; }
 text.title { font-size: 1.2em;
   font-weight: bold; }
 text.axis { font-size: 1.0em;
