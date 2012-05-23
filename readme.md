@@ -1,5 +1,7 @@
 Experiments in communication between JavaScript <=> NetLogo Applet
 
+(in case you're wondering, GCC" stands for Global Climate Change, since that's one of the example simulations we're using in these experiments)
+
 [online demo](http://stepheneb.github.com/netlogo-gcc/index.html)
 
 References:
